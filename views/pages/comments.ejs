@@ -1,0 +1,33 @@
+<div class="jumbotron text-center">
+    <h1>All Messages</h1>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <a href="/comments/add" class="btn btn-lg btn-primary">Add New Message</a>
+    </div>
+</div>
+<br />
+
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Message</th>
+            <th>Date Published</th>
+            <th>Created By</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (var comment of comments) { %>
+            <tr>
+                <td><%= comment.message %></td>
+                <td><%= comment.datePublished %></td>
+                <td><%= comment.createdBy %></td>
+                <td>
+                    <a href="/comments/<%= comment.id %>/delete" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
