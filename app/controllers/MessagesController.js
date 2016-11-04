@@ -7,6 +7,7 @@ module.exports = {
     saveMessage: saveMessage,
     viewMessage: viewMessage,
     deleteMessage: deleteMessage,
+    topMessages: topMessages
 };
 
 var sess;
@@ -51,7 +52,9 @@ function viewMessage(req, res) {
             res.send('The requested message does not exists!');
         }
 
-        Comment.find({messageId: req.params.id}, (err, comments) => {
+        Comment.find({
+            message: req.params.id
+        }, (err, comments) => {
             if (err) {
                 comments = [];
             }
@@ -72,5 +75,19 @@ function deleteMessage(req, res) {
         }
 
         res.redirect('/messages');
+    });
+}
+
+function topMessages(req, res) {
+    Message.find({}, (err, messages) => {
+        if (err) {
+            throw err;
+        }
+
+        const topMessages = messages.sort((a, b) => a.comments.length < b.comments.length).slice(0,5);
+
+        res.render('pages/top-messages', {
+            messages: topMessages
+        });
     });
 }

@@ -4,7 +4,8 @@ const mongoose = require('mongoose'),
 const messageSchema = new Schema({
     message: String,
     datePublished: Date,
-    createdBy: String
+    createdBy: String,
+    comments: [{ type: Schema.Types.ObjectId, ref: 'comment' }]
 });
 
 messageSchema.pre('save', function(next) {

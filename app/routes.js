@@ -18,6 +18,7 @@ router.get('/logout', userController.logoutUser);
 router.get('/messages', messagesController.showMessages);
 router.get('/messages/add', messagesController.addMessages);
 router.post('/messages/add', messagesController.saveMessage);
+router.get('/messages/top', messagesController.topMessages);
 router.get('/messages/:id', messagesController.viewMessage);
 router.get('/messages/:id/delete', messagesController.deleteMessage);
 

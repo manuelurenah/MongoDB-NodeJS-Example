@@ -8,6 +8,13 @@
     </p>
 </div>
 
+<div class="row">
+    <div class="col-xs-4">
+        <a href="/messages" class="btn btn-lg btn-warning">All Messages</a>
+    </div>
+</div>
+<br />
+
 <div class="container">
     <hr width=100% align=left />
     <h1>Comments</h1>
@@ -15,7 +22,7 @@
     <form action="/comments/add" method="POST">
 
         <div class="form-group">
-            <input type="hidden" name="messageId", id="messageId" value="<%= message.id %>">
+            <input type="hidden" name="message", id="message" value="<%= message.id %>">
             <input type="text" name="description" id="description" placeholder="New Comment" class="form-control">
         </div>
 

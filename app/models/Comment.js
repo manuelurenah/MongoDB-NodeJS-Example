@@ -4,7 +4,7 @@ const mongoose = require('mongoose'),
 const commentSchema = new Schema({
     description: String,
     user: String,
-    messageId: String
+    message: { type: Schema.Types.ObjectId, ref: 'message' }
 });
 
 const commentModel = mongoose.model('comment', commentSchema);

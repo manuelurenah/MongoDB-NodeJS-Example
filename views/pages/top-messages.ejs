@@ -1,14 +1,10 @@
 <div class="jumbotron text-center">
-    <h1>All Messages</h1>
+    <h1>Top 5 Messages</h1>
 </div>
 
 <div class="row">
     <div class="col-xs-4">
-        <a href="/messages/add" class="btn btn-lg btn-primary">Add New Message</a>
-    </div>
-
-    <div class="col-xs-4">
-        <a href="/messages/top" class="btn btn-lg btn-success">Top 5 Messages</a>
+        <a href="/messages" class="btn btn-lg btn-warning">All Messages</a>
     </div>
 </div>
 <br />
@@ -30,7 +26,6 @@
                 <td><%= message.createdBy %></td>
                 <td>
                     <a href="/messages/<%= message.id %>" class="btn btn-sm btn-info">View</a>
-                    <a href="/messages/<%= message.id %>/delete" class="btn btn-sm btn-danger">Delete</a>
                 </td>
             </tr>
         <% } %>

@@ -14,7 +14,6 @@ app.set('view engine', 'ejs');
 app.use(expressLayouts);
 app.use(session({
     secret: process.env.SECRET,
-    cookie: { maxAge: 60000 },
     resave: false,
     saveUninitialized: false
 }));

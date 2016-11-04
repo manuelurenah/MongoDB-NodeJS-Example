@@ -1,4 +1,5 @@
 const Comment = require('../models/Comment');
+const Message = require('../models/Message');
 
 module.exports = {
     addComment: addComment
@@ -11,14 +12,19 @@ function addComment(req, res) {
     var newComment = new Comment({
         description: req.body.description,
         user: sess.currentUser.username,
-        messageId: req.body.messageId
+        message: req.body.message
     });
-    
+
     newComment.save((err) => {
         if (err) {
             throw err;
         }
 
-        res.redirect(`/messages/${req.body.messageId}`);
+        Message.findById(req.body.message, (err, message) => {
+            message.comments.push(newComment);
+            message.save();
+        });
+
+        res.redirect(`/messages/${req.body.message}`);
     });
 }
