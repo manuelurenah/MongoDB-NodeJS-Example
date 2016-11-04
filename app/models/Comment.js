@@ -2,14 +2,9 @@ const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
-    message: String,
-    datePublished: Date,
-    createdBy: String
-});
-
-commentSchema.pre('save', function(next) {
-    this.datePublished = new Date();
-    next();
+    description: String,
+    user: String,
+    messageId: String
 });
 
 const commentModel = mongoose.model('comment', commentSchema);

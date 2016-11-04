@@ -13,9 +13,10 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 app.use(session({
-    secret: 'gghhjj77',
+    secret: process.env.SECRET,
+    cookie: { maxAge: 60000 },
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false
 }));
 app.use(bodyParser.urlencoded({
     extended: true

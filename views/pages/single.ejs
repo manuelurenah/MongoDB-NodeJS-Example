@@ -1,0 +1,46 @@
+<div class="jumbotron text-center">
+    <h1><%= message.message %></h1>
+    <p>
+        <%= message.datePublished %>
+    </p>
+    <p>
+        <%= message.createdBy %>
+    </p>
+</div>
+
+<div class="container">
+    <hr width=100% align=left />
+    <h1>Comments</h1>
+
+    <form action="/comments/add" method="POST">
+
+        <div class="form-group">
+            <input type="hidden" name="messageId", id="messageId" value="<%= message.id %>">
+            <input type="text" name="description" id="description" placeholder="New Comment" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success btn-md col-xs-2">Add</button>
+        </div>
+
+    </form>
+    <br />
+    <hr width=100% align=left />
+
+    <table class="table table-bordered table-hover table-striped">
+        <tbody>
+            <% for (var comment of comments) { %>
+                <tr>
+                    <td>
+                        <h4>
+                            <%= comment.user %>
+                        </h4>
+                        <p>
+                            <%= comment.description %>
+                        </p>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>

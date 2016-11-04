@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-xs-4">
-        <a href="/comments/add" class="btn btn-lg btn-primary">Add New Message</a>
+        <a href="/messages/add" class="btn btn-lg btn-primary">Add New Message</a>
     </div>
 </div>
 <br />
@@ -19,13 +19,14 @@
         </tr>
     </thead>
     <tbody>
-        <% for (var comment of comments) { %>
+        <% for (var message of messages) { %>
             <tr>
-                <td><%= comment.message %></td>
-                <td><%= comment.datePublished %></td>
-                <td><%= comment.createdBy %></td>
+                <td><%= message.message %></td>
+                <td><%= message.datePublished %></td>
+                <td><%= message.createdBy %></td>
                 <td>
-                    <a href="/comments/<%= comment.id %>/delete" class="btn btn-sm btn-danger">Delete</a>
+                    <a href="/messages/<%= message.id %>" class="btn btn-sm btn-info">View</a>
+                    <a href="/messages/<%= message.id %>/delete" class="btn btn-sm btn-danger">Delete</a>
                 </td>
             </tr>
         <% } %>
