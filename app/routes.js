@@ -23,3 +23,4 @@ router.get('/messages/:id', messagesController.viewMessage);
 router.get('/messages/:id/delete', messagesController.deleteMessage);
 
 router.post('/comments/add', commentsController.addComment);
+router.get('/comments/top', commentsController.topWords);

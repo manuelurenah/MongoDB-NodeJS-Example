@@ -80,11 +80,12 @@ function deleteMessage(req, res) {
 
 function topMessages(req, res) {
     Message.find({}, (err, messages) => {
+        var topMessages;
         if (err) {
-            throw err;
+            topMessages = [];
+        } else {
+            topMessages = messages.sort((a, b) => a.comments.length < b.comments.length).slice(0,5);
         }
-
-        const topMessages = messages.sort((a, b) => a.comments.length < b.comments.length).slice(0,5);
 
         res.render('pages/top-messages', {
             messages: topMessages
