@@ -37,8 +37,7 @@ function topWords(req, res) {
         for (var i = desc.length - 1; i >= 0; i--) {
             if (desc[i]) {
                 var key = {
-                    word: desc[i],
-                    messageId: this.message
+                    word: desc[i]
                 };
                 emit(key, 1);
             }

@@ -14,7 +14,6 @@
         <tr>
             <th>Word</th>
             <th>Count</th>
-            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -22,9 +21,6 @@
             <tr>
                 <td><%= word._id.word %></td>
                 <td><%= word.value %></td>
-                <td>
-                    <a href="/messages/<%= word._id.messageId %>" class="btn btn-sm btn-info">View</a>
-                </td>
             </tr>
         <% } %>
     </tbody>
